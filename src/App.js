@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   ComponentScreen,
+  CounterScreen,
   HomeScreen,
   ImageScreen,
   ListScreen,
@@ -18,6 +19,7 @@ export const App = () => {
         <Stack.Screen name="List" component={ListScreen} />
         <Stack.Screen name="Component" component={ComponentScreen} />
         <Stack.Screen name="Image" component={ImageScreen} />
+        <Stack.Screen name="Counter" component={CounterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
