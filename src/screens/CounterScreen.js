@@ -2,43 +2,27 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+const CounterButton = ({ text, onPress }) => {
+  return (
+    <TouchableOpacity style={styles.counterBtn} onPress={onPress}>
+      <Text style={styles.counterBtnText}>{text}</Text>
+    </TouchableOpacity>
+  );
+};
 export const CounterScreen = () => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
 
-  const decrement = (value = 1) =>
-    setCount((prev) => {
-      if (prev === 0) return 0;
-      return prev - value;
-    });
+  const decrement = (value = 1) => setCount(count - value);
   const increment = (value = 1) => setCount(count + value);
 
   return (
     <View style={styles.counterContainer}>
       <View style={styles.counter}>
         <Text style={styles.counterText}>{count}</Text>
-        <TouchableOpacity
-          activeOpacity={count === 0 ? 1 : 0.7}
-          style={styles.counterBtn}
-          onPress={() => decrement()}
-        >
-          <Text style={styles.counterBtnText}>-</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.counterBtn} onPress={() => increment()}>
-          <Text style={styles.counterBtnText}>+</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={count === 0 ? 1 : 0.7}
-          style={styles.counterBtn}
-          onPress={() => decrement(10)}
-        >
-          <Text style={styles.counterBtnText}>- 10</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.counterBtn}
-          onPress={() => increment(10)}
-        >
-          <Text style={styles.counterBtnText}>+ 10</Text>
-        </TouchableOpacity>
+        <CounterButton text="-" onPress={() => decrement()} />
+        <CounterButton text="+" onPress={() => increment()} />
+        <CounterButton text="-10" onPress={() => decrement(10)} />
+        <CounterButton text="+10" onPress={() => increment(10)} />
       </View>
     </View>
   );

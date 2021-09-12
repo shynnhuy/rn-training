@@ -2,11 +2,24 @@ import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+const NavButton = ({ title, style, onPress, ...props }) => {
+  return (
+    <TouchableOpacity
+      style={[styles.customBtn, style]}
+      onPress={onPress}
+      {...props}
+    >
+      <Text style={styles.counterText}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
+
 export const HomeScreen = ({ navigation: { navigate } }) => {
   const toComponent = () => navigate("Component");
   const toList = () => navigate("List");
   const toImage = () => navigate("Image");
   const toCounter = () => navigate("Counter");
+  const toColorGenerator = () => navigate("Color");
   return (
     <View style={styles.container}>
       <Button title="To component screen" onPress={toComponent} />
@@ -20,6 +33,13 @@ export const HomeScreen = ({ navigation: { navigate } }) => {
       >
         <Text style={styles.counterText}>To counter screen</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.customBtn, styles.counterBtn]}
+        onPress={toColorGenerator}
+      >
+        <Text style={styles.counterText}>To color generator</Text>
+      </TouchableOpacity>
+      <NavButton title="Todo List" onPress={() => navigate("Todo")} />
     </View>
   );
 };
