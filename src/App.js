@@ -8,6 +8,7 @@ import {
   HomeScreen,
   ImageScreen,
   ListScreen,
+  StoreScreen,
   TodoScreen,
 } from "./screens";
 
@@ -24,6 +25,7 @@ export const App = () => {
         <Stack.Screen name="Counter" component={CounterScreen} />
         <Stack.Screen name="Color" component={ColorScreen} />
         <Stack.Screen name="Todo" component={TodoScreen} />
+        <Stack.Screen name="Store" component={StoreScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

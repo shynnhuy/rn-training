@@ -1,23 +1,11 @@
-import React from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { TodoApp } from "../components/TodoApp";
+import { TodoProvider } from "../context/TodoContext";
 
 export const TodoScreen = () => {
   return (
-    <View style={styles.container}>
-      <TextInput style={styles.input} placeholder="What you gonna do?" />
-    </View>
+    <TodoProvider>
+      <TodoApp />
+    </TodoProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 15,
-    paddingHorizontal: 10,
-  },
-  input: {
-    paddingHorizontal: 8,
-    paddingVertical: 10,
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-});
