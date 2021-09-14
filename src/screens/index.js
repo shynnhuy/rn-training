@@ -5,4 +5,5 @@ export * from "./ImageScreen";
 export * from "./ColorScreen";
 export * from "./CounterScreen";
 export * from "./TodoScreen";
+export * from "./BoxScreen";
 export * from "./StoreScreen";

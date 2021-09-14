@@ -1,9 +1,9 @@
 import React from "react";
 import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
 
-export const Product = ({ image, title, price, description }) => {
+export const Product = ({ image, title, price, description, addToCart }) => {
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={addToCart}>
       <Image
         style={styles.thumb}
         height={300}

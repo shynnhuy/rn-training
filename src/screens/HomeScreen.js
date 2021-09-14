@@ -31,6 +31,7 @@ export const HomeScreen = ({ navigation: { navigate } }) => {
       />
       <NavButton title="Color Generator" onPress={() => navigate("Color")} />
       <NavButton title="Todo List" onPress={() => navigate("Todo")} />
+      <NavButton title="Box Layout" onPress={() => navigate("Box")} />
       <NavButton title="Fake Store" onPress={() => navigate("Store")} />
     </View>
   );

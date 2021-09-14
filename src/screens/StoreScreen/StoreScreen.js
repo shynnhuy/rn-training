@@ -1,12 +1,15 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import { ProductsScreen } from "./ProductsScreen";
+import { ProductScreen } from "./ProductScreen";
 import { CartScreen } from "./CartScreen";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "./store.reducer";
 
 const Tab = createBottomTabNavigator();
 
 export const StoreScreen = () => {
+  const cartCount = useSelector(selectCartCount);
   return (
     <Tab.Navigator
       initialRouteName="Products"
@@ -14,7 +17,7 @@ export const StoreScreen = () => {
     >
       <Tab.Screen
         name="Products"
-        component={ProductsScreen}
+        component={ProductScreen}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
             const iconName = focused ? "albums" : "albums-outline";
@@ -30,6 +33,7 @@ export const StoreScreen = () => {
             const iconName = focused ? "cart" : "cart-outline";
             return <Ionicons name={iconName} size={size} color={color} />;
           },
+          tabBarBadge: cartCount | 0,
         }}
       />
     </Tab.Navigator>
